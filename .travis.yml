@@ -1,0 +1,17 @@
+sudo: required
+language: node_js
+cache:
+  directories:
+  - node_modules
+node_js:
+- '8'
+notifications:
+  slack: ibm-security:qnST3ooBK8sbzusQPaGIuLuQ
+before_install: 
+  - openssl aes-256-cbc -K $encrypted_e09ddef386b2_key -iv $encrypted_e09ddef386b2_iv -in super_secret.txt.enc -out super_secret.txt -d
+script: 
+  - cat super_secret.txt
+after_success: 
+env:
+  global:
+    secure: E5zXLtwVeMW1fa5PuHDTw4t4tK7Moo8hefhawTJdm0EEwlNeIMbh6VyNrpcgQN5JbRPYZPwBeqRDpaz0etUYr+LC7vN49perPf5MaNpgLrSDbTuvNWX6asgq77RkBhRO0BfboOftYBU3RZU7OVDTBkwqpscJYVAk6szDSHS6zpe19gq4Y92odHUwXrl1W6Fq/moiQAXFZq5+lYdJ3sluCFkkFXK0N5qM3W9k47MULrsHhFZMcQHGByggub98+UcXP3swRbvz7YNP6uwxUCzd/8DKYZIn3I1BnK8IR70WypVMA4xDON0U1wtviy7x8d2i1E4PzyiHaZseajIALqoRoKhKBLHDW4mAOKrjnutJ3Z793nKQCsjH9wj1EUvcgzxSryBJWSbsKI0D1feXiNu0JuKqkVgxGtXmBaUaMTQr5WwHRPyWwMTf36UwMZHCvAL6roVkbJGzycN9hB/nxL4aqqXa2HEi/2DFpUs52mjWBjx+91z9m43mJvkNftIBlCsF0CBXjpCCOxAWRHSQ/580aHsR/YF6kIEjhynoDpt/E04TJ5NGt6oJTwWzrtGn76csfKNMEDBWj0VpWNsX5Z0+VRBANgQCEGvfzwq3LFQfuk3NFaj81z/Ty1XjOIOkHDileGlq4SEqu87H9YlQckU9SK1aH8YNd9bOl+c7XZzTa2A=
