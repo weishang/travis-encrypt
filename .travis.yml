@@ -1,16 +1,15 @@
 sudo: required
 language: node_js
-cache:
-  directories:
-  - node_modules
 node_js:
-- '8'
-notifications:
-  slack: ibm-security:qnST3ooBK8sbzusQPaGIuLuQ
+  - '8'
 before_install:
-- openssl aes-256-cbc -K $encrypted_e09ddef386b2_key -iv $encrypted_e09ddef386b2_iv -in super_secret.txt.enc -out super_secret.txt -d
-- echo "${SOMEVAR}"
-- sh ./test.sh
+  - openssl aes-256-cbc -K $encrypted_e09ddef386b2_key -iv $encrypted_e09ddef386b2_iv -in super_secret.txt.enc -out super_secret.txt -d
+  - echo "${SOMEVAR}"
+  - sh ./test.sh
 script:
-- cat super_secret.txt
+  - cat super_secret.txt
 after_success: 
+env:
+  global:
+    - secure: eKJjZ7YO94P2nPmMlj/gPwkppoHfiL2/ACSirPzuKvXS/ZVimRNwgCRCdPYZbkCBRbe/i2eKnQnwkXh1LxKwU2mqqICFTsNuu93EM5Rs3LjMT9TvtFgLHUBQ9lzgKugqJselUnRGbc5Ahh0G5Tt9nqr+3KLHEKYxIPoYTvIZ8IN4JiyS1/8IdqA0wy16/+dJZmcOtH2WVKF8APUIfH0eMZPlNnv5tXh9FlVmyY9gq4ymvzk+4MMjLcqhz3grt9uxKJrOXHqOAU8ELXGUTcha5jP7KeO52Nv8LjTXPzfyNjS3I5bbQrRJXPmpuMZdOX9U9NfOtpwxZADBMYl+8njsA0GqLZ8+BfAeMisunbkWSYa4u7lyCrgToY2Bm3DqwMHEGODqwwi2I5LeEUGpdhneoEVb7VaCE0loAyhYGgZ+6tu6ZjC+YcGwf51Rfxkw7nLN9QraRgBmAnMj28LaurBnUfUqFJrlxZ2nKiiHb1RAudMadupTW9U9DVvHwrYX0T0muDCM1qn3rWtXa/qTxfTNB2sAbmMVXc3FYfXO1iwHzXQGckxox+hFDllzRdp/pSQiNnBJkPl9QwT8nT9FZzL3keMS2+bQ4VfsBh7B+tQzTGmAqCa+fRvDBijR1bDf+iXx01dwaeVTevw7sQCrQ/SXghKbXvJMdM5JMwxFeVhrsa0=
+    - secure: k3f1zXdNv6fqoy4iDDYLkfovHtkKulE1k8kXgDF6XDI8wgmGpZJn3QefdVzcuZNHNkEY4oIFHey4ROV32jLDHaPiEncGnhnZKLzI+ishSG4r6IplpmTVypkpsJuU5Hdk64vFAgFjSDbzCSojltKjNcwNyjJDJykclXhM+6EPULlFSplPYKal2ks5iGvgSiWRB094zbqsv8C9XENmU9/kFKBNBr0EPmXUzb6pdT4RinfmdE6+vfbs0l3d0objbdNAilO6U9Poyd4HbRglzN8zuDsqfpnd8WUvxUGHRqDlHDe4egZ+qo86gNie7hZSgdnW8SJzm4phzh9utja1nrEaJ3c1SfZmN78aLYrWPdYq/hu81bXXk4DIiwbXh1CuROBIbp97E3Eh3K690LqTUqIXzCYmZZ1AstZQ1tpcbAae9/06uMieQ8hg72OwM00OQHOrVZUgeqKfpcF83JS/1ALe6h2tA/XPSqlPy5a7uzlmNf1KldGS6LSZLYDpwKj45/pERK7JKOhP8+eOkeKeKj+Ul7/D+7NwVd/EE+JXa5gr4q34d+IIsYwtH1K0GNGhYjKmLU4IWztU4PLEzLTbcaZTPEbcj0TQbi6qf2i6hhwFUAjJvx3vItpBzrgF9quOIQM6uJsSHruW39USH846i4XA0PCJ3YJGwysO3+84kv8jUv4=
