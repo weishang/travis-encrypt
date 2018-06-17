@@ -4,3 +4,4 @@ STRING="Hello World"
 #print variable on a screen
 echo $STRING
 echo "${SOMEVAR}"
+echo "${CAMPFIRE_TOKEN}"
